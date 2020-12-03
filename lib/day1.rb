@@ -11,5 +11,5 @@ def sum2020(report)
       results_array.push((2020 - x))
     end
   end
-  results_array
+  p results_array[0] * results_array[1]
 end

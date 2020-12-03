@@ -4,7 +4,11 @@ require "../lib/day1.rb"
 describe "sum2020" do
   
   it "solves the test array" do
-    expect(sum2020(TEST)).to eq([1721, 299])
+    expect(sum2020(TEST)).to eq(514579)
+  end
+
+  it "solves the expense report" do
+    expect(sum2020(EXPENSE_REPORT)).to eq(646779)
   end
 
 end
