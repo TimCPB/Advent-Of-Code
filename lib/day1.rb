@@ -13,3 +13,6 @@ def sum2020(report)
   end
   p results_array[0] * results_array[1]
 end
+
+def three_multiples(report)
+end

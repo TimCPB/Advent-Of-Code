@@ -11,4 +11,8 @@ describe "sum2020" do
     expect(sum2020(EXPENSE_REPORT)).to eq(646779)
   end
 
+  it "multiplies 3 multiples of 2020" do
+    expect(three_multiples(TEST)).to eq(241861950)
+  end
+
 end
