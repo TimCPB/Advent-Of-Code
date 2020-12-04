@@ -51,6 +51,11 @@ class Ski_resort
     end
     @tree_count_array.push(tree_count)
   end
+
+  def total_trees
+    @tree_count_array.inject(:*)
+  end
+
 end
 
 # def count_trees(right = 3, down = 1)

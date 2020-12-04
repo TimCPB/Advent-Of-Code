@@ -38,3 +38,20 @@ describe "count_trees" do
   end
 
 end
+
+describe "total_trees" do
+
+  it "gives the total trees across multiple slopes" do
+    input = File.readlines('./constants/day3_test.txt', chomp: true)
+    a = Ski_resort.new(input)
+    a.count_trees(1, 1)
+    a.count_trees(3, 1)
+    a.count_trees(5, 1)
+    a.count_trees(7, 1)
+    a.count_trees(1, 2)
+    p a.tree_count_array
+    expect(a.total_trees).to eq(336)
+  end
+
+end
+
