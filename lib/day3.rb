@@ -6,11 +6,16 @@ def count_trees(input)
   lateral_coord = 0
 
   input.each do |row|
-    
     if row[lateral_coord] == "#"
       tree_count += 1
     end
+    # p lateral_coord
     lateral_coord += right
+    if lateral_coord > 10
+      excess = lateral_coord - 11
+      lateral_coord = 0 + excess
+    end
+    
 
   end
 

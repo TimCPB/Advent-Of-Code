@@ -12,4 +12,9 @@ describe "count_trees" do
     expect(count_trees(input)).to eq(1)
   end
 
+  it "counts trees in data with more rows than columns" do
+    input = File.readlines('./constants/day3_test.txt', chomp: true)
+    expect(count_trees(input)).to eq(7)
+  end
+
 end
