@@ -37,11 +37,13 @@ class Ski_resort
   def count_trees(right = 3, down = 1)
     tree_count = 0
     lateral_coord = 0
-    @input.each do |row|
-      if row[lateral_coord] == "#"
+    row_count = 0
+    while row_count < @input.length do
+      if @input[row_count][lateral_coord] == "#"
         tree_count += 1
       end
       lateral_coord += right
+      row_count += down
       if lateral_coord > (@row_length - 1)
         excess = lateral_coord - @row_length
         lateral_coord = 0 + excess
@@ -50,3 +52,22 @@ class Ski_resort
     @tree_count_array.push(tree_count)
   end
 end
+
+# def count_trees(right = 3, down = 1)
+#   tree_count = 0
+#   lateral_coord = 0
+#   row_count = 0
+#   while row_count < @input.length do
+#     if @input[row_count][lateral_coord] == "#"
+#       tree_count += 1
+#     end
+#     lateral_coord += right
+#     row_count += down
+#     if lateral_coord > (@row_length - 1)
+#       excess = lateral_coord - @row_length
+#       lateral_coord = 0 + excess
+#     end
+#   end
+#   @tree_count_array.push(tree_count)
+# end
+  

@@ -28,4 +28,13 @@ describe "count_trees" do
     expect(a.tree_count_array[0]).to eq(3)
   end
 
+  it "Allows user to move more than one row down at a time" do
+    input = File.readlines('./constants/day3_test.txt', chomp: true)
+    a = Ski_resort.new(input)
+    a.count_trees(1, 2)
+    a.count_trees(3, 2)
+    expect(a.tree_count_array[0]).to eq(2)
+    expect(a.tree_count_array[1]).to eq(2)
+  end
+
 end
