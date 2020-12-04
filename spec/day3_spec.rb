@@ -9,12 +9,16 @@ describe "count_trees" do
 
   it "counts trees in three rows of data" do
     input = File.readlines('./constants/day3_basic.txt', chomp: true)
-    expect(count_trees(input)).to eq(1)
+    a = Ski_resort.new(input)
+    a.count_trees
+    expect(a.tree_count_array[0]).to eq(1)
   end
 
   it "counts trees in data with more rows than columns" do
     input = File.readlines('./constants/day3_test.txt', chomp: true)
-    expect(count_trees(input)).to eq(7)
+    a = Ski_resort.new(input)
+    a.count_trees
+    expect(a.tree_count_array[0]).to eq(7)
   end
 
 end
