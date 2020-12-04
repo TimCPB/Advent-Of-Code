@@ -21,4 +21,11 @@ describe "count_trees" do
     expect(a.tree_count_array[0]).to eq(7)
   end
 
+  it "counts trees for custom slopes" do
+    input = File.readlines('./constants/day3_test.txt', chomp: true)
+    a = Ski_resort.new(input)
+    a.count_trees(5, 1)
+    expect(a.tree_count_array[0]).to eq(3)
+  end
+
 end
