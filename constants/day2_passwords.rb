@@ -3,6 +3,12 @@ TEST_PASSWORDS =
 1-3 b: cdefg
 2-9 c: ccccccccc"
 
+TEST2_PASSWORDS = 
+"1-3 a: abcde
+1-3 b: cdefg
+2-9 c: ccccccccc
+13-15 d: dddddddddddddjmd"
+
 PASSWORDS =
 "15-16 p: ppppppppppplppppp
 4-9 m: xvrwfmkmmmc

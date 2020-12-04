@@ -7,4 +7,8 @@ describe "find_valid_passwords" do
     expect(find_valid_passwords(TEST_PASSWORDS)).to eq(2)
   end
 
+  it "Accounts for min and max values above 10" do
+    expect(find_valid_passwords(TEST2_PASSWORDS)).to eq(3)
+  end
+
 end

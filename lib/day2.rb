@@ -6,9 +6,11 @@ def find_valid_passwords(passwords)
   count = 0
   passwords_array.each do |string|
     single_password_array = string.split(" ")
+    range = single_password_array[0]
+    range_array = range.split("-")
     password_info = {
-      min: single_password_array[0][0].to_i,
-      max: single_password_array[0][2].to_i,
+      min: range_array[0].to_i,
+      max: range_array[1].to_i,
       letter: single_password_array[1][0],
       password: single_password_array[2]
     }
