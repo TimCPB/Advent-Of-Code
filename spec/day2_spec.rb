@@ -11,4 +11,8 @@ describe "find_valid_passwords" do
     expect(find_valid_passwords(TEST2_PASSWORDS)).to eq(3)
   end
 
+  it "Returns the correct number for the new rules" do
+    expect(find_new_passwords(TEST_PASSWORDS)).to eq(1)
+  end
+
 end
