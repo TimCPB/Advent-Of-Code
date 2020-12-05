@@ -88,4 +88,18 @@ class Customs
     end
   end
 
+  def valid_hcl(hcl)
+    count = 0
+    if hcl[0] == "#" && hcl.length == 7
+      hcl.delete("#").split("").each do |char|
+        if ((0..9).include?(char.to_i) && !("a..z").include?(char)) || ("a..f").include?(char)
+          count += 1
+        end
+      end
+    end
+    count == 6 ? true : false  
+  end
+
+
+
 end
