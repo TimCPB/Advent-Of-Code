@@ -41,7 +41,7 @@ describe "Customs" do
     a = Customs.new
     input = a.passport_data
     a.format_passports(input)
-    p a.count_valid_passports
+    a.count_valid_passports
     expect(a.valid_passports.length).to eq(192)
   end
 
@@ -51,6 +51,15 @@ describe "Customs" do
     a.format_passports(input)
     a.count_valid_passports
     expect(a.count_extra_valid_passports).to eq(2)
+  end
+
+  it "delivers final number of extra valid passports" do
+    a = Customs.new
+    input = a.passport_data
+    a.format_passports(input)
+    a.count_valid_passports
+    p a.count_extra_valid_passports
+    p a.extra_valid_passports.length
   end
 
 

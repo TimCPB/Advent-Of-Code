@@ -3,13 +3,14 @@
 
 class Customs
 
-  attr_reader :test_data, :passport_data, :formatted_data, :valid_passports
+  attr_reader :test_data, :passport_data, :formatted_data, :valid_passports, :extra_valid_passports
 
   def initialize
     @test_data = File.readlines('./constants/day4_test.txt', chomp: true)
     @passport_data = File.readlines('./constants/day4_input.txt', chomp: true)
     @formatted_data = ['']
     @valid_passports = []
+    @extra_valid_passports = []
   end
 
   def format_passports(array)
@@ -99,13 +100,18 @@ class Customs
   end
 
   def extra_valid?(hash)
-    valid_byr?(hash[:byr]) &&
-    valid_iyr?(hash[:iyr]) &&
-    valid_eyr?(hash[:eyr]) &&
-    valid_hgt?(hash[:hgt]) &&
-    valid_hcl?(hash[:hcl]) &&
-    valid_ecl?(hash[:ecl]) &&
-    valid_pid?(hash[:pid])
+    (valid_byr?(hash[:byr]) && valid_iyr?(hash[:iyr]) && valid_eyr?(hash[:eyr]) && valid_hgt?(hash[:hgt]) && valid_hcl?(hash[:hcl]) && valid_ecl?(hash[:ecl]) && valid_pid?(hash[:pid]))
+  end
+
+  def count_extra_valid_passports
+    count = 0
+    @valid_passports.each do |hash|
+      if extra_valid?(hash)
+        count += 1
+        @extra_valid_passports.push(hash)
+      end
+    end
+    count
   end
 
 end
