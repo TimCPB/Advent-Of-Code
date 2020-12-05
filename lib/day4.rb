@@ -100,6 +100,11 @@ class Customs
     count == 6 ? true : false  
   end
 
+  def valid_ecl?(ecl)
+    valid_colours = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
+    valid_colours.include?(ecl)
+  end
+
 
 
 end
