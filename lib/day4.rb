@@ -50,6 +50,14 @@ class Customs
     hash.length == 8 || (hash.length == 7 && hash[:cid] == nil)
   end
 
-
+  def count_valid_passports
+    count = 0
+    @formatted_data.each do |hash|
+      if is_valid?(hash)
+        count += 1
+      end
+    end
+    count
+  end
 
 end
