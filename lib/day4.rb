@@ -60,4 +60,32 @@ class Customs
     count
   end
 
+  def valid_byr?(byr)
+    byr >= 1920 && byr <=2020
+  end
+
+  def valid_byr?(byr)
+    byr.length == 4 && byr.to_i >= 1920 && byr.to_i <=2002
+  end
+
+  def valid_iyr?(iyr)
+    iyr.length == 4 && iyr.to_i >= 1920 && iyr.to_i <=2020
+  end
+
+  def valid_eyr?(eyr)
+    eyr.length == 4 && eyr.to_i >= 2020 && eyr.to_i <=2030
+  end
+
+  def valid_hgt?(hgt)
+    if hgt.include?("cm")
+      value = hgt.delete("cm").to_i
+      value >=150 && value <= 193
+    elsif hgt.include?("in")
+      value = hgt.delete("in").to_i
+      value >= 59 && value <= 76
+    else
+      false
+    end
+  end
+
 end
