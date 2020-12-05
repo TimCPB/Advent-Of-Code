@@ -19,4 +19,15 @@ describe "Customs" do
     p a.formatted_data
   end
 
+  it "validates a passport" do
+    a = Customs.new
+    input = a.test_data
+    a.format_passports(input)
+    passports = a.formatted_data
+    expect(a.is_valid?(passports[0])).to eq(true)
+    expect(a.is_valid?(passports[1])).to eq(false)
+    expect(a.is_valid?(passports[2])).to eq(true)
+    expect(a.is_valid?(passports[3])).to eq(false)
+  end
+
 end

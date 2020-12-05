@@ -46,7 +46,10 @@ class Customs
     hash
   end
 
-  # def count_valid_passports
+  def is_valid?(hash)
+    hash.length == 8 || (hash.length == 7 && hash[:cid] == nil)
+  end
+
 
 
 end
