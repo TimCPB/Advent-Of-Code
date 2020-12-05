@@ -42,6 +42,15 @@ describe "Customs" do
     input = a.passport_data
     a.format_passports(input)
     p a.count_valid_passports
+    expect(a.valid_passports.length).to eq(192)
+  end
+
+  it "counts the number of extra valid passports" do
+    a = Customs.new
+    input = a.test_data
+    a.format_passports(input)
+    a.count_valid_passports
+    expect(a.count_extra_valid_passports).to eq(2)
   end
 
 

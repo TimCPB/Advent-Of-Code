@@ -3,25 +3,14 @@
 
 class Customs
 
-  attr_reader :test_data, :passport_data, :formatted_data
+  attr_reader :test_data, :passport_data, :formatted_data, :valid_passports
 
   def initialize
     @test_data = File.readlines('./constants/day4_test.txt', chomp: true)
     @passport_data = File.readlines('./constants/day4_input.txt', chomp: true)
     @formatted_data = ['']
+    @valid_passports = []
   end
-
-  # def separate_passports(array)
-  #   i = 0
-  #   array.each do |line|
-  #     if line.empty?
-  #       i += 1
-  #       @formatted_data[i] = ''
-  #     else
-  #       @formatted_data[i] << ("#{line} ")
-  #     end
-  #   end
-  # end
 
   def format_passports(array)
     i = 0
@@ -55,13 +44,10 @@ class Customs
     @formatted_data.each do |hash|
       if is_valid?(hash)
         count += 1
+        @valid_passports.push(hash)
       end
     end
     count
-  end
-
-  def valid_byr?(byr)
-    byr >= 1920 && byr <=2020
   end
 
   def valid_byr?(byr)
@@ -88,7 +74,7 @@ class Customs
     end
   end
 
-  def valid_hcl(hcl)
+  def valid_hcl?(hcl)
     count = 0
     if hcl[0] == "#" && hcl.length == 7
       hcl.delete("#").split("").each do |char|
@@ -105,6 +91,21 @@ class Customs
     valid_colours.include?(ecl)
   end
 
+  def valid_pid?(pid)
+    valid_characters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    count = 0
+    pid.split("").each { |char| count += 1 if valid_characters.include?(char) }
+    (pid.length == 9 && count == 9) ? true : false
+  end
 
+  def extra_valid?(hash)
+    valid_byr?(hash[:byr]) &&
+    valid_iyr?(hash[:iyr]) &&
+    valid_eyr?(hash[:eyr]) &&
+    valid_hgt?(hash[:hgt]) &&
+    valid_hcl?(hash[:hcl]) &&
+    valid_ecl?(hash[:ecl]) &&
+    valid_pid?(hash[:pid])
+  end
 
 end
