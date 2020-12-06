@@ -33,4 +33,8 @@ class Plane
     @seat_IDs = arr.map { |code| find_seat_ID(code) }
   end
 
+  def find_highest_ID
+    @seat_IDs.max { |a, b| a<=>b }
+  end
+
 end
