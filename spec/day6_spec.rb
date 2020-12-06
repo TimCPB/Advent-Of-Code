@@ -18,4 +18,11 @@ describe "customs" do
     expect(a.formatted_answers[2].length).to eq(3)
   end
 
+  it "sums the unique answers from each group" do
+    a = Customs.new
+    test = a.test_data
+    a.format_answers(test)
+    expect(a.count_answers).to eq(11)
+  end
+
 end

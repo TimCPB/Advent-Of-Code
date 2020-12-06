@@ -23,4 +23,10 @@ class Customs
     # @formatted_answers.map! { |entry| categorise(entry) }
   end
 
+  def count_answers
+    count = 0
+    @formatted_answers.each { |arr| count += arr.length }
+    count
+  end
+
 end
