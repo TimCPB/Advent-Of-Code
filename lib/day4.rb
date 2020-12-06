@@ -1,5 +1,3 @@
-# require '../constants/day4_test.txt'
-# require '../constants/day4_input.txt'
 
 class Customs
 
