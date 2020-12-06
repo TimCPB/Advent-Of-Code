@@ -8,6 +8,7 @@ class Plane
     @rows = 127
     @columns = 7
     @seat_IDs = []
+    @missing_seats = []
   end
 
   def find_seat_ID(code)
@@ -35,6 +36,19 @@ class Plane
 
   def find_highest_ID
     @seat_IDs.max { |a, b| a<=>b }
+  end
+
+  def find_lowest_ID
+    @seat_IDs.min { |a, b| a<=>b }
+  end
+
+  def find_missing_seats
+    numbers = *(1..878)
+    numbers.each_with_index do |num, i|
+      if !@seat_IDs.include?(num) && @seat_IDs.include?(numbers[i-1]) && @seat_IDs.include?(numbers[i+1])
+        return num
+      end
+    end
   end
 
 end

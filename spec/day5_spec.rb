@@ -22,6 +22,14 @@ describe "Plane" do
     plane = Plane.new
     input = plane.input_data
     plane.populate_seat_IDs(input)
-    p plane.find_highest_ID
+    # p plane.find_highest_ID
+    # p plane.seat_IDs.sort
+  end
+
+  it "finds the missing seat" do
+    plane = Plane.new
+    input = plane.input_data
+    plane.populate_seat_IDs(input)
+    expect(plane.find_missing_seats).to eq(504)
   end
 end
