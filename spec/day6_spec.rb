@@ -34,4 +34,12 @@ describe "customs" do
     expect(a.count_unanimous_answer_totals).to eq(6)
   end
 
+  it "sums the unanimous naswer totals for all input data" do
+    a = Customs.new
+    input = a.input_data
+    a.format_answers(input)
+    a.populate_unanimous_answers_totals
+    p a.count_unanimous_answer_totals
+  end
+
 end
