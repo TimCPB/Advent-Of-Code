@@ -17,4 +17,11 @@ describe "Plane" do
     plane.populate_seat_IDs(test)
     expect(plane.find_highest_ID).to eq(820)
   end
+
+  it "returns the highest Seat ID for all input data" do
+    plane = Plane.new
+    input = plane.input_data
+    plane.populate_seat_IDs(input)
+    p plane.find_highest_ID
+  end
 end
